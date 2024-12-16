@@ -1,0 +1,581 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #fff5f7, #fbeeff);
+  color: #333;
+  overflow-y: auto; /* Enable vertical scrolling */
+  min-height: 100vh; /* Ensure the body takes full height */
+}
+
+/* Birthday Container */
+.birthday-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  height: auto; /* Allow height to grow */
+  margin: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  overflow: visible; /* Ensure the container can grow */
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 6s ease-in-out infinite;
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: #ff69b4;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balloon-1 { top: 10%; left: 10%; background-color: #ff69b4; animation-delay: 0s; }
+.balloon-2 { top: 15%; right: 12%; background-color: #ffb6c1; animation-delay: 2s; }
+.balloon-3 { bottom: 15%; left: 50%; background-color: #ffd700; animation-delay: 4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Text Section */
+.text-section {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.birthday-heading {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #ff69b4;
+  margin-bottom: 15px;
+}
+
+.birthday-paragraph {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: justify;
+  color: #555;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.birthday-paragraph em { color: #ff1493; font-style: italic; }
+.birthday-paragraph strong { color: #d6336c; }
+.birthday-paragraph .highlight { color: #ff69b4; font-weight: 600; }
+
+#surprise-btn {
+  display: inline-block;
+  background: linear-gradient(to right, #ff69b4, #ff1493);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+#surprise-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Image Section */
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.birthday-image {
+  width: 100%;
+  max-width: 300px; /* Increased size */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.birthday-image:hover {
+  transform: scale(1.03);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .birthday-container {
+      flex-direction: column;
+      padding: 20px 10px;
+  }
+
+  .birthday-heading {
+      font-size: 1.8rem;
+  }
+
+  .birthday-paragraph {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      text-align: center;
+  }
+
+  .birthday-image {
+      max-width: 250px; /* Adjusted size for tablets */
+  }
+
+  #surprise-btn {
+      font-size: 0.75rem;
+      padding: 6px 12px;
+  }
+
+  .balloon {
+      width: 50px;
+      height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-heading {
+      font-size: 1.5rem;
+  }
+
+  .birthday-paragraph {
+      font-size: 0.8rem;
+  }
+
+  .balloon {
+      width: 40px;
+      height: 60px;
+  }
+
+  #surprise-btn {
+      font-size: 0.7rem;
+      padding: 5px 10px;
+  }
+
+  .birthday-image {
+      max-width: 200px; /* Adjusted size for small screens */
+  }
+}
+
+
+/* Background Decorations */
+.background-decorations-end .balloon-end {
+  position: absolute;
+  width: 80px;
+  height: 120px;
+  background: radial-gradient(circle, #ff69b4, #ff1493);
+  border-radius: 50% 50% 50% 50%;
+  opacity: 0.8;
+  animation: float 5s ease-in-out infinite;
+}
+
+.balloon-end::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 2px;
+  height: 80px;
+  background: #ccc;
+}
+
+.balloon-end:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.balloon-two-end {
+  background: radial-gradient(circle, #87CEEB, #4682B4);
+  left: 80%;
+  animation-delay: 2s;
+}
+
+.balloon-three-end {
+  background: radial-gradient(circle, #87CEEB, #4682B4);
+  left: 45%;
+  animation-delay: 2s;
+}
+
+/* Keyframes for Floating Balloons */
+@keyframes float {
+  0%, 100% {
+      transform: translateY(20px);
+  }
+  50% {
+      transform: translateY(10px);
+  }
+}
+/* Card Styling */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card .text-section {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.card h2 {
+  margin: 0 0 15px;
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Improved Image Styling */
+.card img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 6%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
+  object-fit: cover;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1) contrast(1.2);
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Path Styling */
+.path-line {
+  position: relative;
+  height: 50px;
+  width: 100%;
+}
+
+.path-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 8px,
+      #ff4d4d 8px,
+      #ff4d4d 16px
+  );
+  transform: translateX(-50%);
+}
+
+.path-heart::after {
+  content: '\2764';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  color: #ff4d4d;
+  font-size: 30px;
+  transform: translateX(-50%);
+}
+
+/* Cards Wrapper */
+.cards {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 20px;
+  /* background: linear-gradient(135deg, #f9f9f9, #e0e0e0); */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .balloon-two-end {
+    display: none;
+  }
+
+  .balloon-three-end {
+    background: radial-gradient(circle, #87CEEB, #4682B4);
+    left: 70%;
+    animation-delay: 2s;
+  }
+
+  .card {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .card img {
+    max-width: 220px;
+    margin-bottom: 15px;
+  }
+
+  .card .text-section {
+    padding: 10px 0;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto+Slab:wght@400;500&display=swap');
+
+/* Quote Section Styling */
+.quote-section {
+  background: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.quote {
+  font-size: 2rem;
+  color: #333;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+  position: relative;
+  font-family: 'Roboto Slab', serif;
+}
+
+
+.author {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555;
+  font-family: 'Roboto Slab', serif;
+}
+
+/* Responsive Design for Quote Section */
+@media (max-width: 768px) {
+  .quote {
+    font-size: 1.5rem;
+  }
+
+  .author {
+    font-size: 1rem;
+  }
+}
+
+/* Coffee Stain Effect with CSS */
+.message-section {
+  position: relative;
+  background: #f4e1d2; /* Soft coffee-like background color */
+  padding: 60px 30px;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto Slab', serif;
+  margin-top: 50px;
+  color: #333; /* Ensure text is readable on the background */
+  overflow: hidden; /* To prevent shadow spill */
+}
+
+/* Coffee stain-like pattern using CSS gradients */
+.message-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 20%, rgba(255, 255, 255, 0) 70%), 
+              radial-gradient(circle, rgba(0, 0, 0, 0.15) 40%, rgba(255, 255, 255, 0) 80%);
+  background-position: top left, bottom right;
+  background-repeat: no-repeat;
+  background-size: 250% 250%, 250% 250%;
+  opacity: 0.3; /* Set opacity for subtle stain effect */
+  pointer-events: none; /* Prevent interfering with text */
+  z-index: -1;
+}
+
+/* Text styling */
+.message-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.message-body {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  margin-top: 20px;
+  font-family: 'Merriweather', serif;
+  letter-spacing: 1px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.message-body br {
+  margin-bottom: 15px;
+}
+
+.message-section .message-body::before {
+  content: "❤️";
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.message-section .message-body::after {
+  content: "❤️";
+  font-size: 3rem;
+  display: block;
+  margin-top: 20px;
+}
+
+/* Add subtle inner shadow for aged paper effect */
+.message-section {
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.1); /* Inner and outer shadow */
+}
+
+
+/* Modal container styles */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Modal visible state */
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal content box */
+.modal-content {
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.5s ease-out;
+  position: relative;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #FF4081;
+}
+
+/* Title and description */
+h1 {
+  font-size: 2.5em;
+  color: #FF4081; /* Vivid pink */
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Action button */
+.action-button {
+  background-color: #FF4081;
+  color: white;
+  font-size: 1em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #D0356A;
+}
+
+/* Keyframe animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
