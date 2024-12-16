@@ -51,7 +51,7 @@
             font-size: 16px;
         }
 
-        .login-container input[type="submit"] {
+        .login-container button {
             background: linear-gradient(90deg, #ff758c, #ff7eb3);
             color: white;
             border: none;
@@ -73,26 +73,26 @@
 <body>
     <div class="login-container">
         <h1>🎉 It's your Birthday !! 🎂</h1>
-        <form id="loginForm">
+        <!-- No form tag here -->
+        <div>
             <input type="text" id="username" placeholder="SOMETHING SPECIAL" required>
             <input type="password" id="password" placeholder="THE DATE" required>
-            <input type="submit" value="LET'S GO !">
-        </form>
+            <button id="submitButton">LET'S GO!</button>
+        </div>
         <p>✨ HAPPIEST DAY OF MY LIFE! ✨</p>
     </div>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission behavior
-
+        // Handle login
+        document.getElementById('submitButton').addEventListener('click', function () {
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
 
-            // Validate username and password
+            // Validate credentials
             if (username === 'sabrina' && password === '16/12/07') {
                 // Redirect to success page
-                window.location.href = './success.html'; // Make sure to create success.html in the same directory
+                window.location.href = './success.html'; // Ensure this page exists
             } else {
-                // Show alert for invalid login
+                // Show error message
                 alert('Wrong username or password. Please try again!');
             }
         });
