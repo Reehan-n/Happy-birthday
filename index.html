@@ -12,7 +12,7 @@
             background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
             background-size: 400% 400%;
             animation: gradient 6s ease infinite;
-          display: flex;
+            display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -41,8 +41,7 @@
         }
 
         .login-container input[type="text"],
-        .login-container input[type="password"],
-        .login-container input[type="date"] {
+        .login-container input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -64,7 +63,7 @@
             transition: all 0.3s ease;
         }
 
-              .login-container p {
+        .login-container p {
             color: #333;
             margin-top: 15px;
             font-size: 14px;
@@ -74,13 +73,29 @@
 <body>
     <div class="login-container">
         <h1>🎉 It's your Birthday !! 🎂</h1>
-        <form action="/submit" method="POST">
-            <input type="text" name="username" placeholder="SOMETHING SPECIAL" required>
-            <input type="password" name="password" placeholder="THE DATE" required>
-            
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="SOMETHING SPECIAL" required>
+            <input type="password" id="password" placeholder="THE DATE" required>
             <input type="submit" value="LET'S GO !">
         </form>
         <p>✨ HAPPIEST DAY OF MY LIFE! ✨</p>
     </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission behavior
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validate username and password
+            if (username === 'sabrina' && password === '16/12/07') {
+                // Redirect to success page
+                window.location.href = './success.html'; // Make sure to create success.html in the same directory
+            } else {
+                // Show alert for invalid login
+                alert('Wrong username or password. Please try again!');
+            }
+        });
+    </script>
 </body>
 </html>
